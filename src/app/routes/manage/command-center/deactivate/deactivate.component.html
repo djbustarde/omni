@@ -1,0 +1,47 @@
+<form>
+  <div> </div>
+
+  <div>
+    <input type="checkbox" id="onNextSync" name="onNextSync" />
+    <label for="onNextSync">Wait until next Data Sync</label>
+  </div>
+
+  <div>
+    <input type="radio" name="effectivity" id="normal" value="NORMAL" />
+    <label for="normal">Normal</label>
+  </div>
+  <div>
+    <input type="radio" name="effectivity" id="express" value="EXPRESS" />
+    <label for="normal">Express</label>
+  </div>
+  <div>
+    <input type="radio" name="effectivity" id="delayed" value="DELAYED" />
+    <label for="normal">Delayed</label>
+  </div>
+
+  <div>
+    <select>
+      <option *ngFor="let item of deactivateReasons" [value]="item.value">
+        {{ item.label }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button>Schedule Deactivation</button>
+  </div>
+
+  <div> Recent Events of </div>
+
+  <div>
+    <textarea> </textarea>
+  </div>
+
+  <div>
+    <button>Deactivate Now</button>
+  </div>
+
+  <div>
+    <button>cancel</button>
+  </div>
+</form>
