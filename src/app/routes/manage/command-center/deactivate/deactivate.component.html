@@ -1,26 +1,28 @@
-<form>
-  <div> </div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <nz-date-picker formControlName="date"></nz-date-picker>
+  </div>
 
   <div>
-    <input type="checkbox" id="onNextSync" name="onNextSync" />
+    <input type="checkbox" id="onNextSync" name="onNextSync" formControlName="onNextSync" />
     <label for="onNextSync">Wait until next Data Sync</label>
   </div>
 
   <div>
-    <input type="radio" name="effectivity" id="normal" value="NORMAL" />
+    <input type="radio" name="effectivity" id="normal" value="NORMAL" formControlName="effectivity" />
     <label for="normal">Normal</label>
   </div>
   <div>
-    <input type="radio" name="effectivity" id="express" value="EXPRESS" />
+    <input type="radio" name="effectivity" id="express" value="EXPRESS" formControlName="effectivity" />
     <label for="normal">Express</label>
   </div>
   <div>
-    <input type="radio" name="effectivity" id="delayed" value="DELAYED" />
+    <input type="radio" name="effectivity" id="delayed" value="DELAYED" formControlName="effectivity" />
     <label for="normal">Delayed</label>
   </div>
 
   <div>
-    <select>
+    <select id="reason" name="readon" formControlName="reason">
       <option *ngFor="let item of deactivateReasons" [value]="item.value">
         {{ item.label }}
       </option>
@@ -28,20 +30,20 @@
   </div>
 
   <div>
-    <button>Schedule Deactivation</button>
+    <button nz-button nzType="primary">Schedule Deactivation</button>
   </div>
 
   <div> Recent Events of </div>
 
   <div>
-    <textarea> </textarea>
+    <textarea name="comment" id="comment" formControlName="comment" placeholder="Optional Comment"> </textarea>
   </div>
 
   <div>
-    <button>Deactivate Now</button>
+    <button nz-button nzType="primary">Deactivate Now</button>
   </div>
 
   <div>
-    <button>cancel</button>
+    <button nz-button nzType="default">cancel</button>
   </div>
 </form>

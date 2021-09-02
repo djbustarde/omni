@@ -37,7 +37,7 @@ export class CommandCenterComponent {
         {
           text: 'Deactivate',
           click: (_record, modal) => {
-            this.drawer.create('Deactivate', DeactivateComponent, {}, { size: 400 }).subscribe();
+            this.drawer.create('Deactivate', DeactivateComponent, { device: _record }, { size: 400 }).subscribe();
           }
         }
       ]

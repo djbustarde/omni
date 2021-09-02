@@ -8,151 +8,115 @@ const data = [
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-2",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-3",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-4",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-5",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-6",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-7",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-8",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-9",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-10",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-11",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-12",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-13",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-14",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-15",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-16",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-17",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-18",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
+        id: "device-19",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
-        id: "device-1",
-        customerId: "CST-1",
-        profile: "Medicard-F-02",
-        status: [1]
-    },
-    {
-        id: "device-1",
-        customerId: "CST-1",
-        profile: "Medicard-F-02",
-        status: [1]
-    },
-    {
-        id: "device-1",
-        customerId: "CST-1",
-        profile: "Medicard-F-02",
-        status: [1]
-    },
-    {
-        id: "device-1",
-        customerId: "CST-1",
-        profile: "Medicard-F-02",
-        status: [1]
-    },
-    {
-        id: "device-1",
-        customerId: "CST-1",
-        profile: "Medicard-F-02",
-        status: [1]
-    },
-    {
-        id: "device-1",
-        customerId: "CST-1",
-        profile: "Medicard-F-02",
-        status: [1]
-    },
-    {
-        id: "device-1",
+        id: "device-20",
         customerId: "CST-1",
         profile: "Medicard-F-02",
         status: [1]
