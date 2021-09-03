@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Injector, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { ACLService } from '@delon/acl';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 import { ALAIN_I18N_TOKEN, MenuService, SettingsService, TitleService } from '@delon/theme';
@@ -21,6 +21,8 @@ import { I18NService } from '../i18n/i18n.service';
 export class StartupService {
   constructor(
     iconSrv: NzIconService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
     private menuService: MenuService,
     @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
     private settingService: SettingsService,
@@ -31,6 +33,19 @@ export class StartupService {
     private injector: Injector
   ) {
     iconSrv.addIcon(...ICONS_AUTO, ...ICONS);
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.menuService.menus.forEach(menu => {
+          menu.hide = event.url !== `/${menu.key}` && !event.url.startsWith(`/${menu.key}/`);
+          this.menuService.setItem(menu.key!, menu);
+          // console.log("route", event, this.router.url, this.activatedRoute)
+          // menu.hide = true //route !== "/manage"
+          // this.menuService.setItem(menu.key!, menu)
+          // this.activatedRoute.pathFromRoot.forEach(path => console.log(path.url))
+          // console.log(event)
+        });
+      }
+    });
   }
 
   private viaHttp(): Observable<void> {
@@ -96,7 +111,8 @@ export class StartupService {
     // Menu data, https://ng-alain.com/theme/menu
     this.menuService.add([
       {
-        text: 'Main',
+        key: 'manage',
+        text: 'Manage',
         group: true,
         children: [
           {

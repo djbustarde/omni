@@ -4,7 +4,7 @@ const data = [
     {
         id: "device-1",
         customerId: "CST-1",
-        profile: "Medicard-F-02",
+        profile: "Medicard-F-03",
         status: [1]
     },
     {
@@ -16,25 +16,25 @@ const data = [
     {
         id: "device-3",
         customerId: "CST-1",
-        profile: "Medicard-F-02",
+        profile: "Medicard-F-01",
         status: [1]
     },
     {
         id: "device-4",
         customerId: "CST-1",
-        profile: "Medicard-F-02",
+        profile: "Medicard-F-06",
         status: [1]
     },
     {
         id: "device-5",
         customerId: "CST-1",
-        profile: "Medicard-F-02",
+        profile: "Medicard-F-06",
         status: [1]
     },
     {
         id: "device-6",
         customerId: "CST-1",
-        profile: "Medicard-F-02",
+        profile: "Medicard-F-202",
         status: [1]
     },
     {
@@ -133,6 +133,16 @@ function genData(params: any): { total: number; list: any[] } {
         ret = ret.filter((data) => data.id.indexOf(params.no) > -1);
     }
 
+    if (params.profile) {
+        const order = params.profile === "ascend" ? 1 : -1
+        ret = ret.sort(
+            (a, b) => {
+                if (a.profile < b.profile) return -1 * order
+                if (a.profile > b.profile) return 1 * order
+                return 0
+            }
+        )
+    }
     return { total: ret.length, list: ret.slice(start, ps * pi) };
 }
 export const DEVICES = {

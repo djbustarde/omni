@@ -1,49 +1,73 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div>
-    <nz-date-picker formControlName="date"></nz-date-picker>
+<form [formGroup]="form" (ngSubmit)="submit($event)">
+  <div class="mb-lg" nz-row [nzGutter]="32">
+    <nz-col nzXs="24" class="mb-xs">
+      <nz-date-picker id="date" formControlName="date" (ngModelChange)="dateChange()"></nz-date-picker>
+      <div *ngIf="showDateError">
+        <small class="text-red"> Date is required for scheduled deactivation </small>
+      </div>
+    </nz-col>
+
+    <nz-col nzXs="24" class="mb-xs">
+      <input class="mr-sm" type="checkbox" id="onNextSync" name="onNextSync" formControlName="onNextSync" />
+      <label for="onNextSync">Wait until next Data Sync</label>
+    </nz-col>
+
+    <nz-col nzXs="24" nzMd="8" class="mb-xs">
+      <input class="mr-sm" type="radio" name="effectivity" id="normal" value="NORMAL" formControlName="effectivity" />
+      <label for="normal">Normal</label>
+    </nz-col>
+    <nz-col nzXs="24" nzMd="8" class="mb-xs">
+      <input class="mr-sm" type="radio" name="effectivity" id="express" value="EXPRESS" formControlName="effectivity" />
+      <label for="express">Express</label>
+    </nz-col>
+    <nz-col nzXs="24" nzMd="8" class="mb-xs">
+      <input class="mr-sm" type="radio" name="effectivity" id="delayed" value="DELAYED" formControlName="effectivity" />
+      <label for="delayed">Delayed</label>
+    </nz-col>
+
+    <nz-col nzXs="24" class="mb-lg">
+      <label for="reason">Reason: </label>
+      <select id="reason" name="readon" formControlName="reason">
+        <option *ngFor="let item of deactivateReasons" [value]="item.value">
+          {{ item.label }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="
+          form.controls['reason']?.invalid &&
+          form.controls['reason']?.errors &&
+          (form.controls['reason']?.dirty || form.controls['reason']?.touched)
+        "
+      >
+        <small class="text-red" *ngIf="form.controls['reason']?.hasError('required')"> This field is required. </small>
+      </div>
+    </nz-col>
+
+    <nz-col nzXs="24">
+      <button nz-button nzType="primary" data-type="scheduled">Schedule Deactivation</button>
+    </nz-col>
   </div>
 
-  <div>
-    <input type="checkbox" id="onNextSync" name="onNextSync" formControlName="onNextSync" />
-    <label for="onNextSync">Wait until next Data Sync</label>
+  <div class="mb-lg">
+    <h3>Recent Events of {{ device.id }}</h3>
+
+    <ul *ngIf="events$ | async as events">
+      <li *ngFor="let event of events">Deactivate {{ event.date | date: 'YYYY-MM-dd' }}</li>
+    </ul>
   </div>
 
-  <div>
-    <input type="radio" name="effectivity" id="normal" value="NORMAL" formControlName="effectivity" />
-    <label for="normal">Normal</label>
-  </div>
-  <div>
-    <input type="radio" name="effectivity" id="express" value="EXPRESS" formControlName="effectivity" />
-    <label for="normal">Express</label>
-  </div>
-  <div>
-    <input type="radio" name="effectivity" id="delayed" value="DELAYED" formControlName="effectivity" />
-    <label for="normal">Delayed</label>
-  </div>
+  <div class="mb-lg">
+    <div class="mb-md">
+      <textarea name="comment" id="comment" formControlName="comment" placeholder="Optional Comment"> </textarea>
+    </div>
 
-  <div>
-    <select id="reason" name="readon" formControlName="reason">
-      <option *ngFor="let item of deactivateReasons" [value]="item.value">
-        {{ item.label }}
-      </option>
-    </select>
-  </div>
-
-  <div>
-    <button nz-button nzType="primary">Schedule Deactivation</button>
-  </div>
-
-  <div> Recent Events of </div>
-
-  <div>
-    <textarea name="comment" id="comment" formControlName="comment" placeholder="Optional Comment"> </textarea>
-  </div>
-
-  <div>
-    <button nz-button nzType="primary">Deactivate Now</button>
-  </div>
-
-  <div>
-    <button nz-button nzType="default">cancel</button>
+    <div>
+      <button nz-button nzType="primary" data-type="now">Deactivate Now</button>
+    </div>
   </div>
 </form>
+
+<div class="drawer-footer">
+  <button nz-button nzDanger nzType="default" (click)="cancel()">Cancel</button>
+</div>

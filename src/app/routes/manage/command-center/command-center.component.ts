@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { STColumn, STColumnTag, STComponent } from '@delon/abc/st';
+import { STColumn, STColumnTag, STComponent, STPage } from '@delon/abc/st';
 import { DrawerHelper } from '@delon/theme';
 
 import { DeactivateComponent } from './deactivate/deactivate.component';
@@ -17,6 +17,10 @@ export class CommandCenterComponent {
   constructor(private drawer: DrawerHelper) {}
   url = `/devices?total=2&field=list`;
   params = { a: 1, b: 2 };
+
+  page: STPage = {
+    front: true
+  };
 
   columns: STColumn[] = [
     { title: 'Device Id', index: 'id' },
