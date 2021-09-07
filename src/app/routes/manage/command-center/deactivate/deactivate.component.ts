@@ -74,4 +74,6 @@ export class DeactivateComponent {
   };
 
   cancel = () => this.nzDrawerRef.close();
+
+  disabledDate = (current: Date): boolean => current.getTime() < new Date().getTime();
 }
