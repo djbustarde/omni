@@ -3,31 +3,31 @@ import { MockRequest } from '@delon/mock'
 const data = [
     {
         id: "device-1",
-        customerId: "CST-1",
+        customerId: "CST-2",
         profile: "Medicard-F-03",
         status: [1]
     },
     {
         id: "device-2",
-        customerId: "CST-1",
+        customerId: "CST-2",
         profile: "Medicard-F-02",
         status: [1]
     },
     {
         id: "device-3",
-        customerId: "CST-1",
+        customerId: "CST-2",
         profile: "Medicard-F-01",
         status: [1]
     },
     {
         id: "device-4",
-        customerId: "CST-1",
+        customerId: "CST-2",
         profile: "Medicard-F-06",
         status: [1]
     },
     {
         id: "device-5",
-        customerId: "CST-1",
+        customerId: "CST-2",
         profile: "Medicard-F-06",
         status: [1]
     },
@@ -131,6 +131,10 @@ function genData(params: any): { total: number; list: any[] } {
 
     if (params.id) {
         ret = ret.filter((data) => data.id.indexOf(params.no) > -1);
+    }
+
+    if (params.customerId) {
+        ret = ret.filter((data) => data.customerId.indexOf(params.customerId) > -1);
     }
 
     if (params.profile) {

@@ -1,1 +1,7 @@
-<st #st [page]="page" [widthMode]="{ type: 'strict' }" [data]="url" [columns]="columns"></st>
+<div class="filter-wrapper">
+  <nz-select [(ngModel)]="filter.customerId" (ngModelChange)="updateFilter()">
+    <nz-option *ngFor="let customer of customerIdList" [nzValue]="customer.key" [nzLabel]="customer.value"> </nz-option>
+  </nz-select>
+</div>
+
+<st #st [page]="page" [widthMode]="{ type: 'strict' }" [data]="url" [columns]="columns" [pi]="pageIndex"></st>

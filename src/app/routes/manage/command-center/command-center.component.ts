@@ -11,13 +11,22 @@ const TAG: STColumnTag = {
 @Component({
   selector: 'app-command-center',
   templateUrl: './command-center.component.html',
-  styles: []
+  styleUrls: ['./command-center.component.css']
 })
 export class CommandCenterComponent {
   constructor(private drawer: DrawerHelper) {}
+  filter = {
+    customerId: ''
+  };
+
   url = `/devices?total=2&field=list`;
   params = { a: 1, b: 2 };
+  pageIndex = 1;
 
+  customerIdList = [
+    { key: 'CST-1', value: 'CST-1' },
+    { key: 'CST-2', value: 'CST-2' }
+  ];
   page: STPage = {
     front: true
   };
@@ -47,4 +56,10 @@ export class CommandCenterComponent {
       ]
     }
   ];
+
+  updateFilter = () => {
+    //set table page to 1st page
+    this.pageIndex = 1;
+    this.url = `/devices?total=2&field=list&customerId=${this.filter.customerId}`;
+  };
 }

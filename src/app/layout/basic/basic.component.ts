@@ -24,7 +24,7 @@ import { environment } from '@env/environment';
       </layout-default-header-item>
       <layout-default-header-item direction="right">
         <a layout-default-header-item-trigger routerLink="/module-unavailable">
-          {{ 'header.nav.predict' | i18n }}
+          {{ 'header.nav.logout' | i18n }}
         </a>
       </layout-default-header-item>
 
