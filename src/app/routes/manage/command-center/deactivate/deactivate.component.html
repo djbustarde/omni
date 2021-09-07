@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="submit($event)">
   <div class="mb-lg" nz-row [nzGutter]="32">
     <nz-col nzXs="24" class="mb-xs">
-      <nz-date-picker id="date" formControlName="date" (ngModelChange)="dateChange()"></nz-date-picker>
+      <nz-date-picker [nzDisabledDate]="disabledDate" id="date" formControlName="date" (ngModelChange)="dateChange()"> </nz-date-picker>
       <div *ngIf="showDateError">
         <small class="text-red"> Date is required for scheduled deactivation </small>
       </div>
